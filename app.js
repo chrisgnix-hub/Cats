@@ -44,6 +44,59 @@ const CAT_NAMES = [
   { name: "Cheddar", meaning: "Sharp wit, warm personality" },
 ];
 
+const HISTORY = [
+  {
+    era: "~10,000 BC",
+    title: "The First Friendship",
+    body: "As humans in the Fertile Crescent began farming, wild African wildcats (Felis silvestris lybica) discovered grain stores attracted rodents — an easy meal. Farmers welcomed the arrangement, and a mutualistic relationship was born.",
+  },
+  {
+    era: "~7500 BC",
+    title: "Earliest Known Pet Cat",
+    body: "Archaeologists on Cyprus unearthed a human burial containing a cat interred alongside its owner. The cat was deliberately brought to the island by humans, making it the oldest confirmed evidence of a domesticated cat companion.",
+  },
+  {
+    era: "~3000 BC",
+    title: "Sacred in Ancient Egypt",
+    body: "Egyptians elevated cats to divine status. Bastet, the goddess of home, fertility, and protection, was depicted as a cat or cat-headed woman. Harming a cat — even accidentally — was punishable by death.",
+  },
+  {
+    era: "~1350 BC",
+    title: "Cats Go to War",
+    body: "At the Battle of Pelusium, the Persian king Cambyses II allegedly used cats as shields, knowing Egyptians would not fight for fear of harming the sacred animals. Whether myth or fact, it shows how deeply cats were revered.",
+  },
+  {
+    era: "~500 AD",
+    title: "Spreading Across the World",
+    body: "Phoenician traders and Roman soldiers carried cats on ships to control rodents, spreading them across Europe and Asia. Cat remains appear at sites from Britain to India during this period.",
+  },
+  {
+    era: "1000–1400 AD",
+    title: "Dark Times in Medieval Europe",
+    body: "Cats became associated with witchcraft and the devil in medieval Europe, leading to widespread persecution. Populations declined sharply — a tragic irony, as fewer cats meant more rats and a worse Black Death.",
+  },
+  {
+    era: "1600s",
+    title: "Cats Sail to the Americas",
+    body: "European colonists brought cats aboard ships to the New World to protect food stores from mice. Cats quickly spread across North and South America, establishing feral populations that persist to this day.",
+  },
+  {
+    era: "1871",
+    title: "The First Cat Show",
+    body: "Harrison Weir organised the world's first formal cat show at Crystal Palace, London. Around 160 cats competed across breeds. This marked the beginning of cat fancy — the hobby of breeding and showing pedigree cats.",
+  },
+  {
+    era: "1963",
+    title: "A Cat in Space",
+    body: "Félicette, a Parisian street cat, became the first and only cat to travel to space. Launched by France on 18 October 1963, she survived the mission and was recovered safely. A statue in her honour was unveiled in 2019.",
+  },
+  {
+    era: "2000s–Present",
+    title: "The Internet's Favourite Animal",
+    body: "Cats dominate online culture. From early viral videos to memes like Grumpy Cat and Nyan Cat, felines have become the unofficial mascots of the internet. There are now more pet cats worldwide than pet dogs.",
+  },
+];
+
 const BREEDS = [
   { emoji: "🐱", name: "Persian", trait: "Calm & fluffy" },
   { emoji: "🐈", name: "Siamese", trait: "Vocal & elegant" },
@@ -123,6 +176,23 @@ function renderBreeds() {
   ).join("");
 }
 
+// ─── History ──────────────────────────────────────────────────────────────────
+
+function renderHistory() {
+  const timeline = document.getElementById("timeline");
+  timeline.innerHTML = HISTORY.map(
+    (h, i) => `
+    <div class="timeline-item">
+      <div class="timeline-marker">${i + 1}</div>
+      <div class="timeline-content">
+        <div class="timeline-era">${h.era}</div>
+        <div class="timeline-title">${h.title}</div>
+        <p class="timeline-body">${h.body}</p>
+      </div>
+    </div>`
+  ).join("");
+}
+
 // ─── Init ─────────────────────────────────────────────────────────────────────
 
 document.getElementById("new-cat-btn").addEventListener("click", fetchCatImage);
@@ -133,3 +203,4 @@ fetchCatImage();
 showRandomFact();
 generateName();
 renderBreeds();
+renderHistory();
