@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All About Cats 🐱</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🐱 All About Cats</h1>
+    <p class="tagline">The internet's purr-fect destination</p>
+  </header>
+
+  <main>
+    <!-- Random Cat Image -->
+    <section class="card" id="cat-photo-section">
+      <h2>Random Cat</h2>
+      <div class="cat-image-wrapper">
+        <img id="cat-image" src="" alt="A random cat" />
+        <div id="cat-image-loading" class="loading">Loading...</div>
+      </div>
+      <button id="new-cat-btn" class="btn">New Cat 🐾</button>
+    </section>
+
+    <!-- Cat Fact -->
+    <section class="card" id="cat-fact-section">
+      <h2>Cat Fact</h2>
+      <blockquote id="cat-fact">Loading a fact...</blockquote>
+      <button id="new-fact-btn" class="btn">New Fact 💡</button>
+    </section>
+
+    <!-- Cat Name Generator -->
+    <section class="card" id="name-gen-section">
+      <h2>Cat Name Generator</h2>
+      <div class="name-display">
+        <span id="generated-name">?</span>
+      </div>
+      <p id="name-meaning" class="name-meaning"></p>
+      <button id="gen-name-btn" class="btn">Generate Name ✨</button>
+    </section>
+
+    <!-- Cat Breeds -->
+    <section class="card full-width" id="breeds-section">
+      <h2>Popular Breeds</h2>
+      <div class="breeds-grid" id="breeds-grid">
+        <!-- populated by JS -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Made with ❤️ for cat lovers everywhere</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

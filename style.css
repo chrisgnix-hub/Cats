@@ -1,0 +1,210 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --orange: #ff7043;
+  --orange-light: #ffccbc;
+  --cream: #fff8f0;
+  --brown: #5d4037;
+  --text: #3e2723;
+  --card-bg: #ffffff;
+  --shadow: 0 4px 20px rgba(93, 64, 55, 0.12);
+  --radius: 16px;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* Header */
+header {
+  background: linear-gradient(135deg, var(--orange) 0%, #ff8a65 100%);
+  color: white;
+  text-align: center;
+  padding: 2.5rem 1rem;
+}
+
+header h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.tagline {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-top: 0.4rem;
+}
+
+/* Layout */
+main {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Cards */
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.card.full-width {
+  grid-column: 1 / -1;
+}
+
+.card h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--orange);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Cat Image */
+.cat-image-wrapper {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--orange-light);
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#cat-image {
+  width: 100%;
+  max-height: 280px;
+  object-fit: cover;
+  display: none;
+  border-radius: 12px;
+}
+
+#cat-image.loaded {
+  display: block;
+}
+
+.loading {
+  color: var(--brown);
+  font-style: italic;
+}
+
+/* Fact */
+blockquote {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text);
+  border-left: 4px solid var(--orange);
+  padding-left: 1rem;
+  font-style: italic;
+  flex: 1;
+}
+
+/* Name Generator */
+.name-display {
+  background: var(--orange-light);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+#generated-name {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--orange);
+}
+
+.name-meaning {
+  font-size: 0.9rem;
+  color: var(--brown);
+  min-height: 1.4em;
+}
+
+/* Breeds Grid */
+.breeds-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.breed-card {
+  background: var(--cream);
+  border-radius: 12px;
+  padding: 1rem;
+  border: 2px solid var(--orange-light);
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.breed-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--orange);
+}
+
+.breed-card .breed-emoji {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.breed-card .breed-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--brown);
+}
+
+.breed-card .breed-trait {
+  font-size: 0.82rem;
+  color: #795548;
+  margin-top: 0.25rem;
+}
+
+/* Button */
+.btn {
+  background: var(--orange);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 0.65rem 1.4rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+  align-self: flex-start;
+}
+
+.btn:hover {
+  background: #e64a19;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--brown);
+  font-size: 0.9rem;
+}
